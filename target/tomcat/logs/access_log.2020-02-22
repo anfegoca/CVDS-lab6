@@ -7,3 +7,5 @@
 127.0.0.1 - - [22/Feb/2020:08:46:34 -0500] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-4 2
 127.0.0.1 - - [22/Feb/2020:08:48:29 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-6 19
 127.0.0.1 - - [22/Feb/2020:08:48:38 -0500] "GET /helloServlet HTTP/1.1" 200 16 http-bio-8080-exec-7 0
+127.0.0.1 - - [22/Feb/2020:09:04:17 -0500] "GET /helloServlet?name=Andres HTTP/1.1" 200 22 http-bio-8080-exec-1 22
+127.0.0.1 - - [22/Feb/2020:09:04:28 -0500] "GET /helloServlet?name=%20Andres HTTP/1.1" 200 23 http-bio-8080-exec-2 0
