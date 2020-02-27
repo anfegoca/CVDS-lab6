@@ -8,6 +8,7 @@ package edu.eci.cvds.servlet;
 import edu.eci.cvds.servlet.model.Todo;
 import java.io.IOException;
 import java.io.Writer;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Optional;
 import javax.servlet.ServletException;
@@ -38,8 +39,16 @@ public class SimilarServlet extends  HttpServlet {
             responseWriter.write(Service.todosToHTMLTable(todos));
             responseWriter.flush();
             
+        
+        }catch(NumberFormatException e){
+            resp.setStatus(HttpServletResponse.	SC_BAD_REQUEST);
+            
+            
         }catch(Exception e){
-            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            
+            resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            responseWriter.write("No existe un item con el identificador dado.");
+            responseWriter.flush();
         }
         
         
