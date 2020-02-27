@@ -20,10 +20,11 @@ import java.util.List;
 import com.google.gson.Gson;
 
 import edu.eci.cvds.servlet.model.Todo;
+import java.io.FileNotFoundException;
 
 public class Service {
 
-   public static Todo getTodo(int id) throws MalformedURLException, IOException {
+   public static Todo getTodo(int id) throws MalformedURLException, IOException,FileNotFoundException {
        URL urldemo = new URL("https://jsonplaceholder.typicode.com/todos/" + id);
        URLConnection yc = urldemo.openConnection();
        BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
