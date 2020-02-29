@@ -8,6 +8,7 @@ package edu.eci.cvds.servlet;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -26,20 +27,23 @@ public class BackingBean implements Serializable{
     private int intentos;
     private int acum;
     private String estado;
+    private ArrayList<Integer> listIntentos;
 
     public BackingBean() {
+        listIntentos=new ArrayList<Integer>();
         restart();
     }
 
 
     
     
-    public void guess(int num){
-        if(num == this.num){
+    public void guess(int inte){
+        if(inte == this.num){
             estado="Gano "+acum;
         }else{
             acum-=10000;
             intentos+=1;
+            listIntentos.add(inte);
         }
         
     }
@@ -47,6 +51,7 @@ public class BackingBean implements Serializable{
         num = (int)(Math.random()*10+1);
         intentos=0;
         acum=100000;
+        listIntentos.clear();
         estado="No ha ganado";
     }
     
@@ -81,6 +86,14 @@ public class BackingBean implements Serializable{
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public ArrayList<Integer> getListIntentos() {
+        return listIntentos;
+    }
+
+    public void setListIntentos(ArrayList<Integer> listIntentos) {
+        this.listIntentos = listIntentos;
     }
     
     

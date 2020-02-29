@@ -18,6 +18,15 @@ and open the template in the editor.
            <br> <p:outputLabel  class="premioa" value="Premio acumulado: " /> <p:outputLabel class="premio" value="#{guessBean.acum}"/> </br>
            <p:commandButton value="Enviar" update="guess_form" actionListener="#{guessBean.guess(input.value)}" styleClass="Button" />
            <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.restart()}" styleClass="Button" />
+           <br> </br>
+            <p:dataTable var="intento" value="#{guessBean.listIntentos}" style="width:250px;" styleClass = "Table">
+            <p:column headerText="#Intento" >
+                    <h:outputText value= "#{guessBean.listIntentos.indexOf(inte)+1}" />
+            </p:column>
+            <p:column headerText="Valor Intento"  >
+                    <h:outputText value= "#{inte}" />
+            </p:column>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>
