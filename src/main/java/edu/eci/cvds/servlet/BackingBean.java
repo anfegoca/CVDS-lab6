@@ -6,22 +6,22 @@
 
 package edu.eci.cvds.servlet;
 
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ManagedBean;
-
 /**
  *
  * @author andres.gonzalez-ca
  */
 
+import java.util.ArrayList;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+
+
 
 @ManagedBean(name = "guessBean")
 @SessionScoped
-public class BackingBean implements Serializable{
+public class BackingBean{
     
     private int num;
     private int intentos;
@@ -31,7 +31,9 @@ public class BackingBean implements Serializable{
 
     public BackingBean() {
         listIntentos=new ArrayList<Integer>();
+        System.out.println("JOHANN ES RE GURRERO");
         restart();
+        
     }
 
 
@@ -40,10 +42,15 @@ public class BackingBean implements Serializable{
     public void guess(int inte){
         if(inte == this.num){
             estado="Gano "+acum;
+            restart();
         }else{
             acum-=10000;
             intentos+=1;
             listIntentos.add(inte);
+            System.out.println(intentos);
+            System.out.println(num+"NUM");
+            System.out.println(acum);
+            
         }
         
     }
