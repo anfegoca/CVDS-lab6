@@ -8,25 +8,32 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" type="text/css" href="estilos.css"/>
+        
     <h:body>
         <h:form id="guess_form">
-           <p:outputLabel value="#{guessBean.num}" style="display:none" />
-           <p:inputText  id= "num" type="int" binding="#{input}" >
-           </p:inputText>
-           <br> <p:outputLabel  class="nintentos" value="Numero de intentos: " /> <p:outputLabel  class="intentos" value="#{guessBean.intentos}" /></br>
-           <br> <p:outputLabel class="estado" value="#{guessBean.estado}"/></br>
-           <br> <p:outputLabel  class="premioa" value="Premio acumulado: " /> <p:outputLabel class="premio" value="#{guessBean.acum}"/> </br>
-           <p:commandButton value="Enviar" update="guess_form" actionListener="#{guessBean.guess(input.value)}" styleClass="Button" />
-           <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.restart()}" styleClass="Button" />
-           <br> </br>
-            <p:dataTable var="intento" value="#{guessBean.listIntentos}" style="width:250px;" styleClass = "Table">
-            <p:column headerText="#Intento" >
-                    <h:outputText value= "#{guessBean.listIntentos.indexOf(inte)+1}" />
-            </p:column>
-            <p:column headerText="Valor Intento"  >
-                    <h:outputText value= "#{inte}" />
-            </p:column>
-            </p:dataTable>
+            <div align="center">
+                <p:outputLabel value="#{guessBean.num}" style="display:none" />
+                <p:inputText  id= "num" type="int" binding="#{input}" >
+                </p:inputText>
+                <br> <p:outputLabel  class="nintentos" value="Numero de intentos: " /> <p:outputLabel  class="intentos" value="#{guessBean.intentos}" /></br>
+                <br> <p:outputLabel class="estado" value="#{guessBean.estado}"/></br>
+                <br> <p:outputLabel  class="premioa" value="Premio acumulado: " /> <p:outputLabel class="premio" value="#{guessBean.acum}"/> </br>
+                <p:commandButton value="Enviar" update="guess_form" actionListener="#{guessBean.guess(input.value)}" styleClass="Button" />
+                <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.restart()}" styleClass="Button" />
+                <br> </br>
+                 <p:dataTable var="intento" value="#{guessBean.listIntentos}" style="width:250px;" styleClass = "Table">
+                 <p:column headerText="#Intento" >
+                         <h:outputText value= "#{guessBean.listIntentos.indexOf(intento)+1}" />
+                 </p:column>
+                 <p:column headerText="Valor Intento"  >
+                         <h:outputText value= "#{inte}" />
+                 </p:column>
+                 </p:dataTable>
+            </div>
         </h:form>
+        
+        
+
     </h:body>
 </html>

@@ -27,35 +27,32 @@ public class BackingBean{
     private int intentos;
     private int acum;
     private String estado;
-    private ArrayList<Integer> listIntentos;
+    private ArrayList listIntentos;
 
     public BackingBean() {
-        listIntentos=new ArrayList<Integer>();
-        System.out.println("JOHANN ES RE GURRERO");
-        restart();
-        
+        listIntentos=new ArrayList();
+        num = (int)(Math.random()*10+1);
+        intentos=0;
+        acum=100000;
+        estado="No ha ganado";
     }
 
 
     
     
     public void guess(int inte){
-        if(inte == this.num){
-            estado="Gano "+acum;
-            restart();
-        }else{
-            acum-=10000;
-            intentos+=1;
-            listIntentos.add(inte);
-            System.out.println(intentos);
-            System.out.println(num+"NUM");
-            System.out.println(acum);
-            
+        if(("No ha ganado").equals(estado)){
+            if(inte == this.num){
+                estado="Gano "+acum;
+            }else{
+                acum-=10000;
+                intentos+=1;
+                listIntentos.add(inte);
+            }
         }
         
     }
     public void restart(){
-        num = (int)(Math.random()*10+1);
         intentos=0;
         acum=100000;
         listIntentos.clear();
@@ -95,11 +92,11 @@ public class BackingBean{
         this.estado = estado;
     }
 
-    public ArrayList<Integer> getListIntentos() {
+    public ArrayList getListIntentos() {
         return listIntentos;
     }
 
-    public void setListIntentos(ArrayList<Integer> listIntentos) {
+    public void setListIntentos(ArrayList listIntentos) {
         this.listIntentos = listIntentos;
     }
     
